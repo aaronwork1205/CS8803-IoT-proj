@@ -1,4 +1,3 @@
-
 #include <Wire.h>
 
 // https://randomnerdtutorials.com/esp32-i2c-communication-arduino-ide/

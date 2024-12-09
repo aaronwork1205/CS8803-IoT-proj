@@ -14,7 +14,7 @@ void tcs_loop() {
   // https://cdn-shop.adafruit.com/datasheets/TCS34725.pdf
   tcs.setGain(TCS34725_GAIN_16X);
   tcs.setIntegrationTime(TCS34725_INTEGRATIONTIME_300MS);
-  delay(300); // Delay for one new integ. time period (to allow new reading)
+  delay(300); 
   tcs.getRawData(&r, &g, &b, &c);
   
   // Create JSON object
@@ -24,13 +24,13 @@ void tcs_loop() {
   jsonDoc["B"] = b;
   jsonDoc["C"] = c;
 
-  // Serialize JSON to string
+
   String jsonData;
   serializeJson(jsonDoc, jsonData);
 
-  // Send JSON data via HTTP POST
+
   HTTPClient http;
-  String serverUrl = "http://192.168.51.5:8000"; // Modify if a different port or path is needed
+  String serverUrl = "http://192.168.51.5:8000";
 
   http.begin(serverUrl);
   http.addHeader("Content-Type", "application/json");
@@ -39,19 +39,11 @@ void tcs_loop() {
 
   if (httpResponseCode > 0) {
     String response = http.getString();
-    // Optionally handle the response from the server
-    // For example, you can print it to the Serial Monitor if needed
-    // Serial.println("Response from server:");
-    // Serial.println(response);
-  } else {
-    // Handle error
-    // Serial.print("Error on sending POST: ");
-    // Serial.println(httpResponseCode);
-  }
+  } 
 
-  http.end(); // Free resources
+  http.end(); 
 
-  Serial.print("[TCS]"); // Serial.print(colorTemp, DEC); Serial.print(" K - ");
+  Serial.print("[TCS]"); 
   // Serial.print("Lux: "); Serial.print(lux, DEC); Serial.print(" - ");
   Serial.print("R: "); Serial.print(r, DEC); Serial.print(" ");
   Serial.print("G: "); Serial.print(g, DEC); Serial.print(" ");

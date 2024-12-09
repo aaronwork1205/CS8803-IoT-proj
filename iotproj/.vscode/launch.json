@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "/Users/wenhao/Documents/CS8803-IoT-proj/iotproj",
+      "program": "/Users/wenhao/Documents/CS8803-IoT-proj/iotproj/build/Debug/outDebug"
+    }
+  ]
+}
